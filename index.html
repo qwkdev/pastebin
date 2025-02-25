@@ -1,3 +1,62 @@
 <p style="font-family: monospace; margin: 0;">
-test
+
+import random<br>
+<br>
+# Initialise variables<br>
+counter = 0<br>
+decision = "yes"<br>
+selectedFruit = ""<br>
+<br>
+mysteryFruits = [<br>
+    "apple", "banana", "blueberry",<br>
+    "kiwi", "mango", "orange",<br>
+    "peach", "pineapple", "raspberry",<br>
+    "strawberry"<br>
+]<br>
+<br>
+selectedFruits = []<br>
+<br>
+# Get user's selected fruits<br>
+while decision == "yes" and counter < 6:<br>
+    # Get selected fruit<br>
+    print("Input your chosen fruit:")<br>
+    selectedFruit = input()<br>
+<br>
+    # Validate fruit name to be at least 4 characters long<br>
+    while len(selectedFruit) < 4:<br>
+        print("Fruit name must be at least 4 characters long.")<br>
+        print("Re-enter your chosen fruit:")<br>
+        selectedFruit = input()<br>
+<br>
+    # Store valid fruit selection<br>
+    selectedFruits.append(selectedFruit)<br>
+<br>
+    counter += 1<br>
+<br>
+    # Get user's decision to enter another fruit<br>
+    print("Do you want to enter another fruit? (yes/no)")<br>
+    decision = input()<br>
+<br>
+# Choose random mystery fruit<br>
+choice = random.randint(0, 9) # 0-9 since there are 10 mystery fruits<br>
+<br>
+# Display all the user's entered fruit names<br>
+print("The fruits you entered were:")<br>
+for fruit in selectedFruits:<br>
+    print(fruit)<br>
+<br>
+# Display mystery fruit<br>
+print("The mystery fruit is:")<br>
+print(mysteryFruits[choice])<br>
+<br>
+# Account for selected mystery fruit<br>
+counter += 1<br>
+<br>
+# Calculate and display what drink would work best with the chosen fruits<br>
+if counter < 3:<br>
+    print("These would work best as a milkshake.")<br>
+elif counter == 3 or counter == 4:<br>
+    print("These would work best as a smoothie.")<br>
+else:<br>
+    print("These would work best as fruit juice.")<br>
 </p>
